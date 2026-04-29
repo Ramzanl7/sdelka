@@ -1,0 +1,12 @@
+{
+  "homepage": "https://Ramzanl7.github.io/sdelka/",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
+  },
+  "devDependencies": {
+    "gh-pages": "^6.3.0"
+  }
+}

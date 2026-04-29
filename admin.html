@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; font-src 'self' https://cdnjs.cloudflare.com; img-src 'self' data: blob:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self';">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <title>Админ-панель - SDELKA</title>
+    <link rel="preload" href="main.css" as="style">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <img src="logo.png" alt="SDELKA" class="logo-img">
+            <button class="burger-toggle" type="button" aria-label="Меню">☰</button>
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="about.html">О нас</a></li>
+                <li><a href="post-request.html">Опубликовать заявку</a></li>
+                <li><a href="browse-requests.html">Просмотреть заявки</a></li>
+                <li><a href="my-requests.html">Мои заявки</a></li>
+                <li><a href="my-offers.html">Мои отклики</a></li>
+                <li><a href="login.html">Войти</a></li>
+                <li><a href="register.html">Регистрация</a></li>
+            </ul>
+            <button id="themeToggle" class="theme-toggle" type="button" aria-label="Переключить тему"><i class="fas fa-moon"></i></button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="admin-hero">
+            <h1><i class="fas fa-shield-alt"></i> Административная панель</h1>
+            <p>Управление пользователями, заявками и базовой статистикой сайта SDELKA.</p>
+            <div class="admin-login-note">
+                <strong>Демо-доступ:</strong> admin@sdelka.local / Admin123!
+            </div>
+        </section>
+
+        <div id="adminAccessDenied" class="admin-access-denied" style="display: none;">
+            <h2>Доступ ограничен</h2>
+            <p>Эта страница доступна только администратору. Войдите под учетной записью администратора, чтобы управлять сайтом.</p>
+        </div>
+
+        <!-- Кнопка подтверждения магазина -->
+        <button id="confirmShopBtn" class="btn btn-confirm-shop" type="button" style="display: none;">Подтвердить магазин</button>
+
+        <section id="adminDashboard" class="admin-dashboard">
+            <section class="admin-section" data-admin-panel="true">
+                <h2>Статистика</h2>
+                <div id="adminStats" class="admin-stats"></div>
+            </section>
+
+            <section class="admin-section" data-admin-panel="true">
+                <h2>Пользователи</h2>
+                <div id="adminUsersContainer"></div>
+            </section>
+
+            <section class="admin-section" data-admin-panel="true">
+                <h2>Заявки</h2>
+                <div id="adminRequestsContainer"></div>
+            </section>
+
+            <section class="admin-section" data-admin-panel="true">
+                <h2>Обращения в поддержку</h2>
+                <div id="adminSupportTicketsContainer"></div>
+            </section>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 SDELKA. Все права защищены.</p>
+    </footer>
+
+    <div class="chat-widget">
+        <button id="chatToggle" class="chat-toggle" type="button" aria-label="Открыть чат поддержки"><i class="fas fa-comments"></i></button>
+        <div id="chatWindow" class="chat-window" role="dialog" aria-label="Чат поддержки">
+            <div class="chat-header">
+                <h4 id="chatTitle">Поддержка SDELKA</h4>
+                <div class="chat-header-buttons">
+                    <button id="backToSupportBtn" type="button" aria-label="Вернуться к поддержке" style="display: none;"><i class="fas fa-arrow-left"></i></button>
+                    <button id="chatClose" type="button" aria-label="Закрыть чат">&times;</button>
+                </div>
+            </div>
+            <div class="chat-body">
+                <div id="chatLog" class="chat-log"></div>
+                <div id="chatQuickReplies" class="chat-quick-replies"></div>
+                <div class="chat-instructions">Напишите ваш вопрос. Если бот не сможет помочь, он предложит оставить заявку администратору.</div>
+            </div>
+            <div class="chat-controls">
+                <button id="chatVoice" class="btn chat-voice-btn" type="button" aria-label="Записать голосовое сообщение">🎙️</button>
+                <input id="chatInput" class="chat-input" type="text" placeholder="Напишите сообщение..." aria-label="Сообщение в чат">
+                <button id="chatSend" class="btn chat-send" type="button">Отправить</button>
+            </div>
+            <div id="chatAdminSection" class="chat-admin-section"></div>
+        </div>
+</div>
+
+    <script src="js/core.js" defer></script>
+    <script src="js/requests-module.js" defer></script>
+    <script src="js/admin-module.js" defer></script>
+    <script src="js/support-module.js" defer></script>
+    <script src="js/app.js" defer></script>
+</body>
+</html>

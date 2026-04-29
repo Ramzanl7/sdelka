@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <!-- Мета-данные страницы публикации заявки -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; font-src 'self' https://cdnjs.cloudflare.com; img-src 'self' data: blob:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self';">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <title>Опубликовать заявку - SDELKA</title>
+    <!-- Подключение иконок Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Основной CSS файл -->
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <!-- Шапка сайта -->
+    <header>
+        <!-- Навигационное меню -->
+        <nav>
+            <!-- Логотип -->
+            <img src="logo.png" alt="SDELKA" class="logo-img">
+            <button class="burger-toggle" type="button" aria-label="Меню">☰</button>
+            <!-- Список ссылок меню -->
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="post-request.html">Опубликовать заявку</a></li>
+                <li><a href="browse-requests.html">Просмотреть заявки</a></li>
+                <li><a href="my-requests.html">Мои заявки</a></li>
+                <li><a href="my-offers.html">Мои отклики</a></li>
+                <li><a href="login.html">Войти</a></li>
+                <li><a href="register.html">Регистрация</a></li>
+            </ul>
+            <!-- Кнопка переключения темы -->
+            <button id="themeToggle" class="theme-toggle" type="button" aria-label="Переключить тему"><i class="fas fa-moon"></i></button>
+        </nav>
+    </header>
+    <!-- Основное содержимое -->
+    <main>
+        <!-- Заголовок страницы -->
+        <h1>Опубликовать заявку</h1>
+        <!-- Форма заявки -->
+        <form id="requestForm">
+            <!-- Поле названия -->
+            <label for="title"><i class="fas fa-heading"></i> Название задачи</label>
+            <input type="text" id="title" required>
+
+            <!-- Поле описания -->
+            <label for="description"><i class="fas fa-align-left"></i> Описание</label>
+            <textarea id="description" rows="5" required></textarea>
+
+            <!-- Загрузка фото -->
+            <div class="photo-upload">
+                <!-- Лейбл для фото -->
+                <label for="photoInput"><i class="fas fa-image"></i> Фото из галереи</label>
+                <!-- Блок загрузки фото -->
+                <div id="photoUploadBox" class="photo-upload-box" role="button" tabindex="0">
+                    <span class="photo-placeholder">+</span>
+                    <span>Выбрать фото</span>
+                </div>
+                <!-- Скрытый input для файла -->
+                <input type="file" id="photoInput" accept="image/*" hidden>
+                <!-- Предпросмотр фото -->
+                <div id="photoPreview" class="photo-preview"></div>
+            </div>
+
+            <!-- Кнопка публикации -->
+            <button type="submit"><i class="fas fa-paper-plane"></i> Опубликовать</button>
+        </form>
+    </main>
+    <!-- Подвал сайта -->
+    <footer>
+        <p>&copy; 2026 SDELKA. Все права защищены.</p>
+    </footer>
+    <!-- Виджет чата заявки -->
+    <div class="chat-widget request-chat-widget">
+        <div id="requestChatWindow" class="chat-window request-chat-window" role="dialog" aria-label="Чат по заявке">
+            <div class="chat-header request-chat">
+                <h4 id="requestChatTitle">Чат по заявке</h4>
+                <button id="requestChatClose" type="button" aria-label="Закрыть чат">&times;</button>
+            </div>
+            <div class="chat-body">
+                <div id="requestChatLog" class="chat-log"></div>
+            </div>
+            <div class="chat-controls">
+                <input id="requestChatInput" class="chat-input" type="text" placeholder="Напишите сообщение..." aria-label="Сообщение в чат">
+                <button id="requestChatSend" class="btn chat-send" type="button">Отправить</button>
+            </div>
+        </div>
+    </div>
+    <script src="js/core.js" defer></script>
+    <script src="js/requests-module.js" defer></script>
+    <script src="js/support-module.js" defer></script>
+    <script src="js/app.js" defer></script>
+</body>
+</html>

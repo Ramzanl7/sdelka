@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <!-- Мета-данные страницы "О платформе" -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; font-src 'self' https://cdnjs.cloudflare.com; img-src 'self' data: blob:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self';">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <title>О платформе - SDELKA</title>
+    <link rel="preload" href="main.css" as="style">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <!-- Шапка сайта -->
+    <header>
+        <!-- Навигационное меню -->
+        <nav>
+            <!-- Логотип -->
+            <img src="logo.png" alt="SDELKA" class="logo-img">
+            <button class="burger-toggle" type="button" aria-label="Меню">☰</button>
+            <!-- Список ссылок меню -->
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="post-request.html">Опубликовать заявку</a></li>
+                <li><a href="browse-requests.html">Просмотреть заявки</a></li>
+                <li><a href="my-requests.html">Мои заявки</a></li>
+                <li><a href="my-offers.html">Мои отклики</a></li>
+                <li><a href="login.html">Войти</a></li>
+                <li><a href="register.html">Регистрация</a></li>
+            </ul>
+            <!-- Кнопка переключения темы -->
+            <button id="themeToggle" class="theme-toggle" type="button" aria-label="Переключить тему"><i class="fas fa-moon"></i></button>
+        </nav>
+    </header>
+    <!-- Основное содержимое -->
+    <main id="about1">
+        <!-- Заголовок страницы -->
+        <h1>О SDELKA</h1>
+        <img src="IMG_0145.PNG" alt="SDELKA" class="about-image" />
+        <!-- Описание платформы -->
+        <p>SDELKA — экосистема умных решений для вашего дома<br>
+SDELKA — это инновационный маркетплейс, который меняет привычный подход к ремонту и покупкам. Мы создали единое пространство, где путь от идеи до реализации сокращается до нескольких кликов.
+<br>На одной платформе мы объединили три ключевых звена: Клиента, Мастера и Магазин. ---
+Как мы работаем?<br>
+Забудьте о бесконечных звонках и поисках. С нами процесс превращается в прозрачную сделку:<br>
+1.	Заявка: Вы описываете задачу и прикрепляете фото.<br>
+2.	Предложения: Магазины предлагают необходимые материалы, а мастера — свои услуги по их установке или монтажу.<br>
+3.	Выбор: Вы сравниваете цены, портфолио и отзывы, выбирая лучшее предложение в одном окне.<br>
+Почему выбирают SDELKA?<br>
+• Для Клиентов: Комплексный подход. Вам не нужно искать отдельно плитку и отдельно плиточника — они сами найдут вас.<br>
+• Для Мастеров: Постоянный поток горячих заказов без затрат на маркетинг. Ваша репутация работает на вас.<br>
+• Для Магазинов: Прямой выход на целевого покупателя именно в тот момент, когда он готов к покупке.<br>
+Наша миссия
+Мы стремимся сделать рынок услуг и строительных товаров прозрачным, надежным и доступным. SDELKA соединяет профессионалов с теми, кто ценит свое время и результат.<br>
+
+<br><b>SDELKA — когда всё сходится в одном месте.</b></p>
+        
+    </main>
+    <!-- Подвал сайта -->
+    <footer>
+        <p>&copy; 2026 SDELKA. Все права защищены.</p>
+    </footer>
+    <!-- Виджет чата поддержки -->
+    <div class="chat-widget">
+        <!-- Кнопка открытия чата -->
+        <button id="chatToggle" class="chat-toggle" type="button" aria-label="Открыть чат поддержки"><i class="fas fa-comments"></i></button>
+        <!-- Окно чата -->
+        <div id="chatWindow" class="chat-window" role="dialog" aria-label="Чат поддержки">
+            <!-- Заголовок чата -->
+            <div class="chat-header">
+                <h4 id="chatTitle">Поддержка SDELKA</h4>
+                <!-- Кнопки управления -->
+                <div class="chat-header-buttons">
+                    <button id="backToSupportBtn" type="button" aria-label="Вернуться к поддержке" style="display: none;"><i class="fas fa-arrow-left"></i></button>
+                    <button id="chatClose" type="button" aria-label="Закрыть чат">&times;</button>
+                </div>
+            </div>
+            <!-- Тело чата -->
+            <div class="chat-body">
+                <!-- Лог сообщений -->
+                <div id="chatLog" class="chat-log"></div>
+                <!-- Быстрые ответы -->
+                <div id="chatQuickReplies" class="chat-quick-replies"></div>
+                <!-- Инструкции для пользователя -->
+                <div class="chat-instructions">Напишите ваш вопрос. Если бот не сможет помочь, он предложит оставить заявку администратору.</div>
+            </div>
+            <!-- Элементы управления чатом -->
+            <div class="chat-controls">
+                <!-- Кнопка голосового сообщения -->
+                <button id="chatVoice" class="btn chat-voice-btn" type="button" aria-label="Записать голосовое сообщение">🎙️</button>
+                <!-- Поле ввода сообщения -->
+                <input id="chatInput" class="chat-input" type="text" placeholder="Напишите сообщение..." aria-label="Сообщение в чат">
+                <!-- Кнопка отправки -->
+                <button id="chatSend" class="btn chat-send" type="button">Отправить</button>
+            </div>
+            <!-- Секция для админских форм -->
+            <div id="chatAdminSection" class="chat-admin-section"></div>
+        </div>
+    </div>
+    <!-- Виджет чата заявки -->
+    <div class="chat-widget request-chat-widget">
+        <div id="requestChatWindow" class="chat-window request-chat-window" role="dialog" aria-label="Чат по заявке">
+            <div class="chat-header request-chat">
+                <h4 id="requestChatTitle">Чат по заявке</h4>
+                <button id="requestChatClose" type="button" aria-label="Закрыть чат">&times;</button>
+            </div>
+            <div class="chat-body">
+                <div id="requestChatLog" class="chat-log"></div>
+            </div>
+            <div class="chat-controls">
+                <input id="requestChatInput" class="chat-input" type="text" placeholder="Напишите сообщение..." aria-label="Сообщение в чат">
+                <button id="requestChatSend" class="btn chat-send" type="button">Отправить</button>
+            </div>
+        </div>
+    </div>
+    <script src="js/core.js" defer></script>
+    <script src="js/support-module.js" defer></script>
+    <script src="js/app.js" defer></script>
+</body>
+</html>
